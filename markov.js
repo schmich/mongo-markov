@@ -93,6 +93,8 @@ function MarkovChainBuilder(markovCollection, tokenizer, symbolizer, degree) {
 
     var index = 0;
     while ((doc = await(cursor.nextObjectAsync())) != null) {
+      index++;
+
       var text = selector(doc);
       if (text === null) {
         continue;
@@ -104,8 +106,6 @@ function MarkovChainBuilder(markovCollection, tokenizer, symbolizer, degree) {
         var percent = Math.ceil((index / count) * 100);
         Log.info(sprintf('%d/%d (%d%%)', index, count, percent));
       }
-
-      index++;
     }
   });
 
