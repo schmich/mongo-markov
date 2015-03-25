@@ -156,4 +156,4 @@ var run = async(function() {
   markovDb.close();
 });
 
-run();
+run().done();
